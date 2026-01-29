@@ -55,78 +55,20 @@
       "imagen": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       "categoria": "Casual",
       "descripcion": "Zapatillas clásicas de lona"
-    }
-    {
-  "products": [
-    {
-      "id": 1,
-      "codigo": "NIKE-AM270-001",
-      "nombre": "Zapatillas Nike Air Max 270",
-      "marca": "Nike",
-      "modelo": "Air Max 270",
-      "color": "Negro/Blanco",
-      "talle": "40",
-      "stock": 150,
-      "precio": 85000,
-      "imagen": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "categoria": "Deportivas",
-      "descripcion": "Zapatillas deportivas con tecnología Air Max"
     },
     {
-      "id": 2,
-      "codigo": "ADIDAS-UB-001",
-      "nombre": "Zapatillas Adidas Ultraboost",
-      "marca": "Adidas",
-      "modelo": "Ultraboost",
-      "color": "Blanco",
+      "id": 999,
+      "codigo": "TEST-001",
+      "nombre": "PRODUCTO DE PRUEBA",
+      "marca": "Test",
+      "modelo": "Test",
+      "color": "Azul",
       "talle": "42",
-      "stock": 120,
-      "precio": 120000,
-      "imagen": "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "categoria": "Running",
-      "descripcion": "Zapatillas de running con amortiguación Boost"
-    },
-    {
-      "id": 3,
-      "codigo": "PUMA-RSX-001",
-      "nombre": "Zapatillas Puma RS-X",
-      "marca": "Puma",
-      "modelo": "RS-X",
-      "color": "Rojo",
-      "talle": "39",
-      "stock": 95,
-      "precio": 75000,
-      "imagen": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "categoria": "Urbanas",
-      "descripcion": "Zapatillas urbanas con diseño moderno"
-    },
-    {
-      "id": 4,
-      "codigo": "CONV-CT-001",
-      "nombre": "Zapatillas Converse Chuck Taylor",
-      "marca": "Converse",
-      "modelo": "Chuck Taylor",
-      "color": "Negro",
-      "talle": "41",
-      "stock": 200,
-      "precio": 55000,
-      "imagen": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "categoria": "Casual",
-      "descripcion": "Zapatillas clásicas de lona"
-    },
-    {
-      "id": 1769663978740,
-      "codigo": "1258SGRE",
-      "nombre": "zapatillas Adidas Runfalcon",
-      "marca": "Adidas",
-      "modelo": "Runfalcon",
-      "color": "Negro/Blanca",
-      "talle": "37",
-      "stock": 10,
-      "precio": 65000,
-      "imagen": "data:image/jpeg;base64,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",
-      "categoria": "Running",
-      "descripcion": "Zapatillas Adidas Runfalcon - Negro/Blanca"
-     }, 
+      "stock": 50,
+      "precio": 50000,
+      "imagen": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "categoria": "Deportivas",
+      "descripcion": "Este es un producto de prueba para verificar que funciona"
+    }
   ]
 }
