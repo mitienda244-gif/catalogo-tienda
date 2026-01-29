@@ -57,18 +57,18 @@
       "descripcion": "Zapatillas clásicas de lona"
     },
     {
-      "id": 999,
-      "codigo": "TEST-001",
-      "nombre": "PRODUCTO DE PRUEBA",
-      "marca": "Test",
-      "modelo": "Test",
-      "color": "Azul",
-      "talle": "42",
-      "stock": 50,
-      "precio": 50000,
+      "id": 5,
+      "codigo": "1258SGRE",
+      "nombre": "zapatillas Adidas Runfalcon",
+      "marca": "Adidas",
+      "modelo": "Runfalcon",
+      "color": "Negro/Blanca",
+      "talle": "37",
+      "stock": 10,
+      "precio": 65000,
       "imagen": "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      "categoria": "Deportivas",
-      "descripcion": "Este es un producto de prueba para verificar que funciona"
+      "categoria": "Running",
+      "descripcion": "Zapatillas Adidas Runfalcon - Negro/Blanca"
     }
   ]
 }
