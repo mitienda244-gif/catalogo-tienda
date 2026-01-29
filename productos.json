@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "codigo": "NIKE-AM270-001",
+      "nombre": "Zapatillas Nike Air Max 270",
+      "marca": "Nike",
+      "modelo": "Air Max 270",
+      "color": "Negro/Blanco",
+      "talle": "40",
+      "stock": 150,
+      "precio": 85000,
+      "imagen": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "categoria": "Deportivas",
+      "descripcion": "Zapatillas deportivas con tecnología Air Max"
+    },
+    {
+      "id": 2,
+      "codigo": "ADIDAS-UB-001",
+      "nombre": "Zapatillas Adidas Ultraboost",
+      "marca": "Adidas",
+      "modelo": "Ultraboost",
+      "color": "Blanco",
+      "talle": "42",
+      "stock": 120,
+      "precio": 120000,
+      "imagen": "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "categoria": "Running",
+      "descripcion": "Zapatillas de running con amortiguación Boost"
+    },
+    {
+      "id": 3,
+      "codigo": "PUMA-RSX-001",
+      "nombre": "Zapatillas Puma RS-X",
+      "marca": "Puma",
+      "modelo": "RS-X",
+      "color": "Rojo",
+      "talle": "39",
+      "stock": 95,
+      "precio": 75000,
+      "imagen": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "categoria": "Urbanas",
+      "descripcion": "Zapatillas urbanas con diseño moderno"
+    },
+    {
+      "id": 4,
+      "codigo": "CONV-CT-001",
+      "nombre": "Zapatillas Converse Chuck Taylor",
+      "marca": "Converse",
+      "modelo": "Chuck Taylor",
+      "color": "Negro",
+      "talle": "41",
+      "stock": 200,
+      "precio": 55000,
+      "imagen": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "categoria": "Casual",
+      "descripcion": "Zapatillas clásicas de lona"
+    }
+  ]
+}
