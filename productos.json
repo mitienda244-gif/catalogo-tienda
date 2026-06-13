@@ -3,7 +3,7 @@
     {
       "id": "zap-urbana-blanca",
       "titulo": "Zapatilla Urbana Blanca",
-      "precio": "28500",
+      "precio": 28500,
       "imagen": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
       "talles": "38,39,40,41,42",
       "colores": "Blanco, Negro, Gris",
@@ -12,7 +12,7 @@
     {
       "id": "zap-deportiva-azul",
       "titulo": "Deportiva Azul Runner",
-      "precio": "32900",
+      "precio": 32900,
       "imagen": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600",
       "talles": "39,40,41,42,43",
       "colores": "Azul, Rojo, Negro",
@@ -21,7 +21,7 @@
     {
       "id": "zap-casual-marrón",
       "titulo": "Casual Premium Marrón",
-      "precio": "31200",
+      "precio": 31200,
       "imagen": "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600",
       "talles": "38,39,40,41,42,43",
       "colores": "Marrón, Cuero, Negro",
