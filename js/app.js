@@ -2,8 +2,8 @@
 // Módulo principal del catálogo mayorista
 
 // ----- Variables globales -----
-let cart = [];               // Array con los items del carrito
-let allProducts = [];        // Array con todos los productos cargados desde JSON
+let cart = [];              // Array con los items del carrito
+let allProducts = [];       // Array con todos los productos cargados desde JSON
 
 // ----- DOM elementos -----
 const productsContainer = document.getElementById('products-container');
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     checkSuccessMessage();
     attachFormSubmitValidation();
     attachNetlifyAuth();
+    attachGlobalClickEvents(); // Nueva función para delegar eventos
 });
 
 // Carga los productos desde productos.json
@@ -36,18 +37,7 @@ async function loadProducts() {
         renderProducts(allProducts);
     } catch (error) {
         console.error('Error cargando productos:', error);
-        // Productos de ejemplo por si falla el JSON
-        allProducts = [
-            {
-                id: 'demo-1',
-                titulo: 'Zapatilla Urbana Demo',
-                precio: '28500',
-                imagen: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600',
-                talles: '38,39,40,41,42',
-                colores: 'Negro, Blanco, Gris',
-                categoria: 'urbano'
-            }
-        ];
+        allProducts = [];
         renderProducts(allProducts);
     }
 }
@@ -92,11 +82,23 @@ function renderProducts(products) {
                     <input type="number" id="qty-${prod.id}" value="1" min="1" class="w-full bg-black/60 border border-white/10 rounded-lg text-xs p-2 text-white text-center">
                 </div>
             </div>
-            <button onclick="addToOrder('${prod.id}', '${prod.titulo.replace(/'/g, "\\'")}', ${prod.precio})" class="w-full bg-white/5 hover:bg-blue-600/80 text-white text-sm font-light py-2 rounded-xl transition-all">
+            <button data-id="${prod.id}" data-titulo="${prod.titulo.replace(/"/g, '&quot;')}" data-precio="${prod.precio}" class="btn-agregar w-full bg-white/5 hover:bg-blue-600/80 text-white text-sm font-light py-2 rounded-xl transition-all">
                 + Agregar al pedido
             </button>
         `;
         productsContainer.appendChild(card);
+    });
+}
+
+// Delegación de eventos: esta función hace que el botón +Agregar funcione siempre
+function attachGlobalClickEvents() {
+    productsContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn-agregar')) {
+            const id = e.target.dataset.id;
+            const title = e.target.dataset.titulo;
+            const price = e.target.dataset.precio;
+            addToOrder(id, title, price);
+        }
     });
 }
 
@@ -129,11 +131,7 @@ function updateCartUI() {
     let details = '';
 
     if (cart.length === 0) {
-        cartItemsList.innerHTML = `
-            <div class="text-center py-8 text-gray-500">
-                <i class="fa-regular fa-cart-shopping text-2xl mb-2 block"></i>
-                <p class="text-sm font-light">Tu carrito está vacío.</p>
-            </div>`;
+        cartItemsList.innerHTML = `<div class="text-center py-8 text-gray-500"><p class="text-sm font-light">Tu carrito está vacío.</p></div>`;
         orderForm.classList.add('hidden');
         cartCountBtn.innerText = '0';
         summaryQty.innerText = '0';
@@ -169,13 +167,11 @@ function updateCartUI() {
     summaryTotal.innerHTML = `$${totalPrice.toLocaleString('es-AR')}`;
 }
 
-// Elimina un item del carrito
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartUI();
 }
 
-// Filtros por categoría
 function attachCategoryFilters() {
     const catBtns = document.querySelectorAll('.cat-btn');
     catBtns.forEach(btn => {
@@ -186,17 +182,11 @@ function attachCategoryFilters() {
             });
             btn.classList.add('active', 'bg-blue-600/80', 'text-white');
             const cat = btn.dataset.cat;
-            if (cat === 'todos') {
-                renderProducts(allProducts);
-            } else {
-                const filtered = allProducts.filter(p => p.categoria?.toLowerCase() === cat);
-                renderProducts(filtered);
-            }
+            renderProducts(cat === 'todos' ? allProducts : allProducts.filter(p => p.categoria?.toLowerCase() === cat));
         });
     });
 }
 
-// Verifica si se envió el pedido con éxito (parámetro status=success)
 function checkSuccessMessage() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('status') === 'success') {
@@ -205,7 +195,6 @@ function checkSuccessMessage() {
     }
 }
 
-// Evita enviar formulario si el carrito está vacío
 function attachFormSubmitValidation() {
     if (orderForm) {
         orderForm.addEventListener('submit', (e) => {
@@ -217,19 +206,14 @@ function attachFormSubmitValidation() {
     }
 }
 
-// Netlify Identity: redirige al panel si el usuario se loguea desde el sitio
 function attachNetlifyAuth() {
     if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', user => {
             if (!user) {
-                window.netlifyIdentity.on('login', () => {
-                    document.location.href = '/admin/';
-                });
+                window.netlifyIdentity.on('login', () => { document.location.href = '/admin/'; });
             }
         });
     }
 }
 
-// Exponer funciones globales necesarias para los onclick desde HTML
-window.addToOrder = addToOrder;
 window.removeFromCart = removeFromCart;
