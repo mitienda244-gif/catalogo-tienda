@@ -1,6 +1,14 @@
 {
   "productos": [
     {
+      "imagen": "/images/ad01-negro-blanco-frente..jpg",
+      "id": "1234635",
+      "titulo": "deportinas",
+      "precio": "55000",
+      "talles": "38,39,40,41",
+      "colores": "negro"
+    },
+    {
       "id": "zap-urbana-blanca",
       "titulo": "Zapatilla Urbana Blanca",
       "precio": 28500,
@@ -26,14 +34,6 @@
       "talles": "38,39,40,41,42,43",
       "colores": "Marrón, Cuero, Negro",
       "categoria": "casual"
-    },
-    {
-      "imagen": "/images/ad01-negro-blanco-frente..jpg",
-      "id": "1234635",
-      "titulo": "deportinas",
-      "precio": "55000",
-      "talles": "38,39,40",
-      "colores": "negro"
     }
   ]
 }
