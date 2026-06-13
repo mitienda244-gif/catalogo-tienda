@@ -1,31 +1,12 @@
 {
   "productos": [
     {
-      "id": "zap-urbana-blanca",
-      "titulo": "Zapatilla Urbana Blanca",
-      "precio": "28500",
-      "imagen": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
-      "talles": "38,39,40,41,42",
-      "colores": "Blanco, Negro, Gris",
-      "categoria": "urbano"
-    },
-    {
-      "id": "zap-deportiva-azul",
-      "titulo": "Deportiva Azul Runner",
-      "precio": "32900",
-      "imagen": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600",
-      "talles": "39,40,41,42,43",
-      "colores": "Azul, Rojo, Negro",
-      "categoria": "deportivo"
-    },
-    {
-      "id": "zap-casual-marrón",
-      "titulo": "Casual Premium Marrón",
-      "precio": "31200",
-      "imagen": "https://images.unsplash.com/photo-1539185441755-769473a23570?w=600",
-      "talles": "38,39,40,41,42,43",
-      "colores": "Marrón, Cuero, Negro",
-      "categoria": "casual"
+      "imagen": "/images/ad01-negro-blanco-frente..jpg",
+      "id": "1546889",
+      "titulo": "AD01-negro-blanco-frente.",
+      "precio": "54.000",
+      "talles": "38",
+      "colores": "Negro"
     }
   ]
 }
