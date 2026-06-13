@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: mitienda244-gif/catalogo-tienda
   branch: main
 
 media_folder: "images"
