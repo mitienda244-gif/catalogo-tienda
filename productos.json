@@ -7,6 +7,14 @@
       "precio": "54.000",
       "talles": "38",
       "colores": "Negro"
+    },
+    {
+      "imagen": "/images/1000075876.jpg",
+      "id": "183847485",
+      "titulo": "Zapatillas urbanas",
+      "precio": "4500p",
+      "talles": "39",
+      "colores": "Rosa"
     }
   ]
 }
