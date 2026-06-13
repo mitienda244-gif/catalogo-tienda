@@ -2,6 +2,8 @@ backend:
   name: github
   repo: mitienda244-gif/catalogo-tienda
   branch: main
+  base_url: https://catalogo-tienda.mitienda244.workers.dev/
+
 
 media_folder: "images"
 public_folder: "/images"
