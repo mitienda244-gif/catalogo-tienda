@@ -5,23 +5,25 @@ backend:
 media_folder: "images"
 public_folder: "/images"
 
+# Esto traduce la interfaz al español
+locale: 'es'
+
 collections:
-  - name: "productos_config"
-    label: "Configuración de Productos"
+  - name: "inventario"
+    label: "Gestión de Inventario"
     files:
       - name: "productos"
-        label: "Productos"
+        label: "Lista de Productos"
         file: "productos.json"
         fields:
-          - label: "Productos"
-            name: "productos"
+          - name: "productos"
+            label: "Lista de Productos"
             widget: "list"
             fields:
-              - { label: "ID", name: "id", widget: "string" }
-              - { label: "Título", name: "titulo", widget: "string" }
-              - { label: "Precio", name: "precio", widget: "string" }
+              - { label: "Código", name: "id", widget: "string" }
+              - { label: "Nombre", name: "titulo", widget: "string" }
+              - { label: "Precio", name: "precio", widget: "number" }
               - { label: "Imagen", name: "imagen", widget: "image" }
               - { label: "Talles", name: "talles", widget: "string" }
               - { label: "Colores", name: "colores", widget: "string" }
-
 
