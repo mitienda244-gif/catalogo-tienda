@@ -1,7 +1,6 @@
 {
   "productos": [
     {
-      id: 1,
                     codigo: "NIKE-AM270-001",
                     nombre: "Zapatillas Nike Air Max 270",
                     marca: "Nike",
@@ -15,7 +14,7 @@
                     descripcion: "Zapatillas deportivas con tecnología Air Max""
     },
     {
-      id: 2,
+    
                     codigo: "ADIDAS-UB-001",
                     nombre: "Zapatillas Adidas Ultraboost",
                     marca: "Adidas",
