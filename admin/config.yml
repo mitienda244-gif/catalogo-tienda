@@ -6,17 +6,22 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "productos"
-    label: "Productos"
-    file: "productos.json"
-    fields:
-      - label: "Productos"
-        name: "productos"
-        widget: "list"
+  - name: "productos_config"
+    label: "Configuración de Productos"
+    files:
+      - name: "productos"
+        label: "Productos"
+        file: "productos.json"
         fields:
-          - { label: "ID", name: "id", widget: "string" }
-          - { label: "Título", name: "titulo", widget: "string" }
-          - { label: "Precio", name: "precio", widget: "string" }
-          - { label: "Imagen", name: "imagen", widget: "image" }
-          - { label: "Talles", name: "talles", widget: "string" }
-          - { label: "Colores", name: "colores", widget: "string" }
+          - label: "Productos"
+            name: "productos"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Precio", name: "precio", widget: "string" }
+              - { label: "Imagen", name: "imagen", widget: "image" }
+              - { label: "Talles", name: "talles", widget: "string" }
+              - { label: "Colores", name: "colores", widget: "string" }
+
+
