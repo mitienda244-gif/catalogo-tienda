@@ -1,31 +1,14 @@
 {
   "productos": [
     {
-                    codigo: "NIKE-AM270-001",
-                    nombre: "Zapatillas Nike Air Max 270",
-                    marca: "Nike",
-                    modelo: "Air Max 270",
-                    color: "Negro/Blanco",
-                    talle: "40",
-                    stock: 150,
-                    precio: 85000,
-                    imagen: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    categoria: "Deportivas",
-                    descripcion: "Zapatillas deportivas con tecnología Air Max""
+      "id": "zap-urbana-blanca",
+      "titulo": "Zapatilla Urbana Blanca",
+      "precio": 28500,
+      "imagen": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+      "talles": "38,39,40,41,42",
+      "colores": "Blanco, Negro, Gris",
+      "categoria": "urbano"
     },
-    {
-    
-                    codigo: "ADIDAS-UB-001",
-                    nombre: "Zapatillas Adidas Ultraboost",
-                    marca: "Adidas",
-                    modelo: "Ultraboost",
-                    color: "Blanco",
-                    talle: "42",
-                    stock: 120,
-                    precio: 120000,
-                    imagen: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    categoria: "Running",
-                    descripcion: "Zapatillas de running con amortiguación Boost"
     }
   ]
 }
