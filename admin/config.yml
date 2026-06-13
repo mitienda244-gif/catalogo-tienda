@@ -3,15 +3,15 @@ backend:
   branch: main
 
 media_folder: "images"
-public_folder: "images"
+public_folder: "/images"
 
 collections:
   - name: "productos"
     label: "Productos"
     file: "productos.json"
     fields:
-      - name: "productos"
-        label: "Lista de Productos"
+      - label: "Productos"
+        name: "productos"
         widget: "list"
         fields:
           - { label: "ID", name: "id", widget: "string" }
