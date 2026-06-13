@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda | Catálogo Mayorista</title>
+    
+    <!-- Tipografías -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #080808; }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .hero-luxury {
+            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), 
+                              url('https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=2071&auto=format');
+            background-size: cover;
+            background-position: center 30%;
+            background-attachment: fixed;
+        }
+        .custom-scroll::-webkit-scrollbar { width: 3px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #1a1a1a; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 3px; }
+        .card-subtle { transition: all 0.25s ease; }
+        .card-subtle:hover { transform: translateY(-3px); border-color: rgba(59,130,246,0.3); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.3); }
+        .btn-elegant { transition: all 0.2s ease; backdrop-filter: blur(4px); }
+        .btn-elegant:hover { background-color: rgba(59,130,246,0.8); border-color: rgba(59,130,246,0.8); transform: translateY(-1px); }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- Header minimalista -->
+    <header class="bg-black/40 backdrop-blur-md border-b border-white/5 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-regular fa-rectangle-list text-blue-400/80 text-lg"></i>
+                <div>
+                    <h1 class="text-sm font-light tracking-wide text-white">MI TIENDA</h1>
+                    <p class="text-[9px] uppercase tracking-[0.2em] text-gray-400">Catálogo Mayorista</p>
+                </div>
+            </div>
+            <a href="#pedido" class="flex items-center gap-2 text-sm font-light text-gray-300 hover:text-white transition-colors">
+                <i class="fa-regular fa-clipboard"></i>
+                <span class="hidden sm:inline">Mi Pedido</span>
+                <span id="cart-count-btn" class="bg-blue-600/80 text-white text-[11px] w-5 h-5 flex items-center justify-center rounded-full">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero / Portada elegante -->
+    <section class="hero-luxury relative py-32 md:py-48">
+        <div class="container mx-auto px-6 text-center relative z-10 max-w-3xl">
+            <h1 class="font-serif text-6xl md:text-8xl font-light tracking-tight text-white drop-shadow-sm">MI TIENDA</h1>
+            <p class="text-xl md:text-2xl font-light text-blue-200/90 mt-3 tracking-wide">Catálogo Mayorista</p>
+            <div class="w-12 h-px bg-white/30 mx-auto my-8"></div>
+            <p class="font-serif text-3xl md:text-4xl font-normal text-white tracking-wide">VENTA MAYORISTA DE MI TIENDA</p>
+            <p class="text-lg text-gray-200 mt-2 font-light">CALIDAD Y ESTILO AL POR MAYOR</p>
+            <p class="text-gray-300 text-base mt-8 leading-relaxed max-w-md mx-auto font-light">
+                Catálogo exclusivo para mayoristas. Seleccione productos, talles y cantidades. 
+                Envíe su pedido directamente por Email.
+            </p>
+            <div class="mt-6 text-amber-400/80 text-sm font-light tracking-wide">
+                <i class="fa-regular fa-gem mr-1 text-xs"></i> Mínimo de compra: 12 pares
+            </div>
+            <div class="mt-10">
+                <a href="#productos" class="btn-elegant inline-flex items-center gap-2 border border-white/40 hover:border-blue-500 text-white px-8 py-3 rounded-full text-sm font-medium transition-all bg-black/20">
+                    Ver Catálogo <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de categorías (filtros) -->
+    <div class="container mx-auto px-6 pt-10">
+        <div class="border-t border-white/10 pt-8 pb-2 text-center">
+            <h2 class="text-[11px] uppercase tracking-[0.3em] text-gray-500 font-semibold">Categorías</h2>
+            <p class="text-gray-500 text-sm mt-1 font-light">Seleccione una categoría para filtrar productos</p>
+            <div class="flex flex-wrap justify-center gap-3 mt-6" id="categorias-container">
+                <button class="cat-btn active bg-blue-600/80 text-white px-5 py-2 rounded-full text-sm transition-all" data-cat="todos">Todos</button>
+                <button class="cat-btn bg-white/5 hover:bg-white/10 text-gray-300 px-5 py-2 rounded-full text-sm transition-all" data-cat="urbano">Urbano</button>
+                <button class="cat-btn bg-white/5 hover:bg-white/10 text-gray-300 px-5 py-2 rounded-full text-sm transition-all" data-cat="deportivo">Deportivo</button>
+                <button class="cat-btn bg-white/5 hover:bg-white/10 text-gray-300 px-5 py-2 rounded-full text-sm transition-all" data-cat="casual">Casual</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor principal: productos + carrito -->
+    <div id="productos" class="container mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
+        
+        <!-- Columna izquierda: catálogo de productos -->
+        <main class="w-full lg:w-2/3">
+            <div class="flex justify-between items-center border-b border-white/10 pb-4 mb-6">
+                <h3 class="text-base font-medium text-white tracking-wide">Modelos en Stock</h3>
+                <span class="text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full font-light">
+                    <span id="products-found" class="text-blue-400 font-medium">0</span> productos
+                </span>
+            </div>
+            <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="col-span-full text-center py-12 text-gray-500">
+                    <i class="fa-regular fa-hourglass-half animate-pulse text-2xl mb-3 block"></i>
+                    <p class="font-light">Cargando catálogo...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Columna derecha: resumen del pedido y formulario -->
+        <aside class="w-full lg:w-1/3">
+            <div id="pedido" class="bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl p-6 sticky top-24 shadow-xl">
+                <div class="flex items-center gap-2 border-b border-white/10 pb-4 mb-4">
+                    <i class="fa-regular fa-receipt text-blue-400 text-sm"></i>
+                    <h3 class="text-base font-medium text-white">Resumen del Pedido</h3>
+                </div>
+                <div id="cart-items-list" class="space-y-3 max-h-64 overflow-y-auto custom-scroll mb-5 pr-1">
+                    <div class="text-center py-8 text-gray-500">
+                        <i class="fa-regular fa-cart-shopping text-2xl mb-2 block"></i>
+                        <p class="text-sm font-light">Tu carrito está vacío.<br>Agregá productos del catálogo.</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 rounded-xl p-4 mb-6 space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-400 font-light">Total Pares:</span>
+                        <span id="summary-qty" class="font-medium text-white">0</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-white/10">
+                        <span class="text-sm text-gray-300 font-light">Monto Estimado:</span>
+                        <span id="summary-total" class="text-xl font-light text-blue-400">$0</span>
+                    </div>
+                </div>
+
+                <!-- Formulario de envío por email (usa tu correo) -->
+                <form action="https://formsubmit.co/mitienda244@gmail.com" method="POST" id="order-form" class="hidden space-y-4">
+                    <!-- Campos ocultos para FormSubmit -->
+                    <input type="hidden" name="_subject" value="📦 Nuevo Pedido Mayorista - Mi Tienda">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Redirige a la misma página con status=success -->
+                    <input type="hidden" name="_next" value="https://TU-SITIO.netlify.app/?status=success">
+                    <!-- Campo para el detalle del pedido (se llena desde JS) -->
+                    <input type="hidden" name="Detalle del Pedido" id="hidden-cart-details">
+
+                    <div class="space-y-3">
+                        <input type="text" name="Nombre y Apellido" placeholder="Nombre y Apellido" required 
+                               class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500/50 transition-all font-light">
+                        <input type="tel" name="Teléfono / WhatsApp" placeholder="Teléfono o WhatsApp" required 
+                               class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500/50 transition-all font-light">
+                        <input type="email" name="Correo Electrónico" placeholder="Correo Electrónico" required 
+                               class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500/50 transition-all font-light">
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600/80 hover:bg-blue-600 text-white font-medium py-3 rounded-xl transition-all flex items-center justify-center gap-2 text-sm backdrop-blur-sm">
+                        <i class="fa-regular fa-paper-plane"></i> Confirmar Pedido
+                    </button>
+                </form>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-10 text-center text-xs text-gray-500 font-light mt-16">
+        <p>&copy; 2026 Mi Tienda · Catálogo Mayorista · Alojado en Netlify</p>
+        <div class="mt-3">
+            <a href="/admin/" class="hover:text-gray-300 transition-colors inline-flex items-center gap-1">
+                <i class="fa-regular fa-lock-keyhole"></i> Panel de administración
+            </a>
+        </div>
+    </footer>
+
+    <!-- Cargar JavaScript principal (app.js) -->
+    <script src="js/app.js"></script>
+
+    <!-- Reemplazar TU-SITIO.netlify.app dinámicamente (opcional, pero se puede dejar fijo en Netlify) -->
+    <script>
+        // Reemplaza la URL de redirección en el formulario con la URL actual del sitio
+        const form = document.getElementById('order-form');
+        if (form) {
+            const nextInput = form.querySelector('input[name="_next"]');
+            if (nextInput && window.location.origin) {
+                nextInput.value = `${window.location.origin}/?status=success`;
+            }
+        }
+    </script>
+</body>
+</html>

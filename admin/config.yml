@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Carpeta donde se guardarán las imágenes subidas desde el CMS
+media_folder: "images"
+public_folder: "/images"
+
+# Colección de productos (un solo archivo JSON)
+collections:
+  - name: "productos"
+    label: "Catálogo de Productos"
+    label_singular: "Producto"
+    description: "Administrá los productos del catálogo mayorista"
+    file: "productos.json"
+    create: false   # No crear archivos nuevos, solo editar el existente
+    fields:
+      - label: "Lista de Productos"
+        name: "productos"
+        widget: "list"
+        summary: "{{fields.titulo}} - ${{fields.precio}}"
+        fields:
+          - { label: "ID único (ej: zap-urbana)", name: "id", widget: "string", required: true }
+          - { label: "Modelo / Título", name: "titulo", widget: "string", required: true }
+          - { label: "Precio mayorista ($)", name: "precio", widget: "string", required: true, pattern: ['^[0-9]+$', 'Solo números'] }
+          - { label: "Imagen", name: "imagen", widget: "image", required: true, media_library: { config: { multiple: false } } }
+          - { label: "Talles (separados por coma)", name: "talles", widget: "string", required: true, default: "38,39,40,41,42" }
+          - { label: "Colores (separados por coma)", name: "colores", widget: "string", required: true, default: "Negro, Blanco" }
+          - { label: "Categoría (urbano, deportivo, casual)", name: "categoria", widget: "string", required: false, default: "urbano" }
